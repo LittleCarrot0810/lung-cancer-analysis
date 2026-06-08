@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-API_URL = "http://127.0.0.1:8000/"
+API_URL = "https://lung-cancer-analysis-sb24.onrender.com"
 
 st.sidebar.title("Menu")
 lua_chon = st.sidebar.selectbox(

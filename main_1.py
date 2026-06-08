@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-API_URL = "https://lung-cancer-analysis-sb24.onrender.com/"
+API_URL = "https://lung-cancer-analysis-sb24.onrender.com"
 
 st.sidebar.title("Menu")
 lua_chon = st.sidebar.selectbox(
@@ -27,7 +27,7 @@ if lua_chon == "Selection":
 elif lua_chon == "General":
     st.subheader("Phân tích dữ liệu ung thư phổi")
     phan_hoi = requests.get(
-        f"{API_URL}benhnhan"
+        f"{API_URL}/benhnhan"
     )
 
     du_lieu = pd.DataFrame(
@@ -155,7 +155,7 @@ elif lua_chon == "General":
                 }
 
                 try:
-                    res = requests.post(f"{API_URL}them", json=du_lieu_moi)
+                    res = requests.post(f"{API_URL}/them", json=du_lieu_moi)
 
                     if res.status_code == 200:
                         st.success(f"Đã thêm bệnh nhân số {so_thu_tu}")
@@ -183,7 +183,7 @@ elif lua_chon == "General":
         if st.button("Tìm"):
 
             ket_qua = requests.get(
-                f"{API_URL}benhnhan/{int(ma_so)}"
+                f"{API_URL}/benhnhan/{int(ma_so)}"
             )
 
             if ket_qua.status_code == 200:
@@ -209,7 +209,7 @@ elif lua_chon == "Age":
     st.subheader("Age of Lung Cancer")
     # ===== Lấy dữ liệu từ API =====
     response_age = requests.get(
-        f"{API_URL}age"
+        f"{API_URL}/age"
     )
     # ===== Kiểm tra phản hồi từ API =====
     if response_age.status_code == 200:

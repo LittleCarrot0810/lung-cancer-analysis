@@ -31,7 +31,7 @@ elif lua_chon == "General":
     )
 
     du_lieu = pd.DataFrame(
-        phan_hoi.json()
+        phan_hoi.json([])
     )
 
     st.dataframe(
